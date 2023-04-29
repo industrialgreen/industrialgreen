@@ -1,11 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { Inter } from "next/font/google";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import useTranslation from 'next-translate/useTranslation'
+import PageWrapper from "@/components/PageWrapper";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const {t} = useTranslation('common')
   return (
     <>
       <Head>
@@ -14,9 +19,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-
-      </main>
+      <PageWrapper>
+        <h1>home</h1>
+        <h2>{t('contact')}</h2>
+      </PageWrapper>
     </>
-  )
+  );
 }

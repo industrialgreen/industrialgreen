@@ -1,0 +1,13 @@
+{
+  "home": "home",
+  "indoor": "indoor",
+  "outdoor": "outdoor",
+  "products": "products",
+  "contact": "contact",
+
+  "404title": "page not found",
+  "404content": "We can't seem to find what you're looking for",
+  "back": "Go back",
+  "backHome": "Go home",
+  "footer": "Industrial Green 2023. All rights reserved"
+}

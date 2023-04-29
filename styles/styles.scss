@@ -1,0 +1,58 @@
+@import url("./fonts.css");
+
+$green: #179736;
+$lightgray: #f2f2f2;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+body{
+  background: $lightgray;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+nav {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #fff;
+
+  & div {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px;
+
+    & a {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      text-transform: uppercase;
+
+      &.active > p {
+        color: $green;
+        font-weight: 600;
+      }
+
+      & p::after {
+        display: block;
+        content: "";
+        border-bottom: 2px solid $green;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+      }
+
+      &:hover p::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
