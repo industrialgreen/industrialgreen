@@ -4,8 +4,11 @@
   "outdoor": "outdoor",
   "products": "products",
   "contact": "contact",
-  "homeTitle": "Invite green to your home",
-  "homeSubtitle": "no mather how small it is",
+  "hometestTitle": "Invite green to your home no mather how small it is",
+
+  "homeTitle": "modern look for your green",
+  "homeSubtitle": "",
+
 
   "404title": "page not found",
   "404content": "We can't seem to find what you're looking for",

@@ -15,10 +15,40 @@ body{
   background: #fff;
 }
 
+h1 {
+  font-size: 50px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
+.green {
+  color: $green;
+}
+
+.button-text {
+  color: $green;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  min-height: 36px;
+  line-height: 1.75;
+  font-weight: 500;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: none;
+
+  &:hover {
+    border: 1px solid $green;
+
+  }
+}
+
 nav {
   padding: 20px 40px;
   display: flex;
@@ -63,6 +93,32 @@ nav {
   margin: 0 auto;
   max-width: 1200px;
   background: #fff;
+}
+
+.home-wrapper {
+  display: flex;
+
+  & > .text-container {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & div {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & h4{
+        margin: 10vh 0 5vh;
+        text-align: center;
+      }
+    }
+  }
+  & h1 {
+    text-transform: uppercase;
+  }
 }
 
 .contact {

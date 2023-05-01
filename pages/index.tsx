@@ -17,8 +17,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageWrapper>
-        <h1>home</h1>
-        <h2>{t('contact')}</h2>
+        <div className="home-wrapper">
+          <Image src="/home-background.png" width="600" height="1000" alt="" />
+          <div className="text-container">
+            <h1>Industrial <span className="green">Green</span></h1>
+            <motion.div
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{opacity: 0, y: 0}}
+              transition={{duration: 0.8, delay: 0.8 }}
+            >
+              <h2>{t('homeTitle')}</h2>
+              <h4>{t('homeSubtitle')}</h4>
+              <Link href="/products">
+              <button className="button-text">{t('homeButton')}</button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
       </PageWrapper>
     </>
   );
