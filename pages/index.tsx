@@ -1,13 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { Inter } from "next/font/google";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import useTranslation from 'next-translate/useTranslation'
 import PageWrapper from "@/components/PageWrapper";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const {t} = useTranslation('common')

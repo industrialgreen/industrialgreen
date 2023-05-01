@@ -12,7 +12,7 @@ $lightgray: #f2f2f2;
 }
 
 body{
-  background: $lightgray;
+  background: #fff;
 }
 
 a {
@@ -23,7 +23,8 @@ nav {
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 3px solid #fff;
+
+  border-bottom: 1px solid $lightgray;
 
   & div {
     display: flex;
@@ -54,5 +55,19 @@ nav {
         transform: scaleX(1);
       }
     }
+  }
+}
+
+.page-wrapper {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  background: #fff;
+}
+
+.contact {
+  &.container {
+    display: flex;
+    flex-direction: row;
   }
 }
