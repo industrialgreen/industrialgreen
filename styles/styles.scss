@@ -18,7 +18,15 @@ body{
 h1 {
   font-size: 50px;
 }
-
+h3 {
+  font-size: 30px;
+}
+h5 {
+  font-size: 20px;
+}
+p {
+  font-size: 16px;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -46,6 +54,24 @@ a {
   &:hover {
     border: 1px solid $green;
 
+  }
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    color: $green;
   }
 }
 
@@ -110,7 +136,7 @@ nav {
       flex-direction: column;
       align-items: center;
 
-      & h4{
+      & p{
         margin: 10vh 0 5vh;
         text-align: center;
       }
@@ -121,9 +147,13 @@ nav {
   }
 }
 
-.contact {
-  &.container {
-    display: flex;
-    flex-direction: row;
+.contact-container {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 20px;
+    & div {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
   }
-}

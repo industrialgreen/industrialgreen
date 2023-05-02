@@ -28,7 +28,7 @@ export default function Home() {
               transition={{duration: 0.8, delay: 0.8 }}
             >
               <h2>{t('homeTitle')}</h2>
-              <h4>{t('homeSubtitle')}</h4>
+              <p>{t('homeSubtitle')}</p>
               <Link href="/products">
               <button className="button-text">{t('homeButton')}</button>
               </Link>
