@@ -9,13 +9,13 @@ type IProps = {
 }
 
 const ProductTile = ({product} : IProps) => {
-    const {title, img} = product
+    const {title, img, id} = product
 
   return (
-    <div className="product-tile">
+    <Link href={`/products/${id}`} className="product-tile">
         <img src={img}  alt="kwietnik"/>
         <p>{title}</p>
-    </div>
+    </Link>
   );
 };
 
