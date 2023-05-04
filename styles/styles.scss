@@ -147,6 +147,31 @@ nav {
   }
 }
 
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px 20px;
+}
+
+.product-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $green;
+  }
+  & img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
 .contact-container {
     display: grid;
     grid-template-columns: 3fr 2fr;

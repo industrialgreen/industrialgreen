@@ -9,11 +9,7 @@ import { usePathname } from "next/navigation";
 
 const Test = () => {
   const path = usePathname();
-  const links = [
-    { href: "/", text: "Home" },
-    { href: "/projects", text: "Projects" },
-    { href: "/contact", text: "Contact" },
-  ];
+
   const variants = {
     hidden: { opacity: 1 },
     show: {
@@ -48,27 +44,7 @@ const Test = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageWrapper>
-        <nav>
-          <ul>
-            {links.map((link) => (
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`${
-                      link.href === path ? "nav-link-active" : "nav-link"
-                    }`}
-                  >
-                    {link.text}
-                  </Link>
-                </li>
-              </motion.div>
-            ))}
-          </ul>
-        </nav>
+
         <div
           style={{ display: "flex", flexDirection: "column", height: "50vh" }}
         >
