@@ -1,7 +1,10 @@
 @import url("./fonts.css");
 
 $green: #179736;
+$darkgreen: #0d5d20;
 $lightgray: #f2f2f2;
+$mediumgray: #797777;
+$darkgray: #3c3934;
 
 * {
   box-sizing: border-box;
@@ -83,9 +86,11 @@ a {
 }
 
 nav {
+  position: relative;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
+  z-index: 10;
 
   & .nav-items-container {
     display: flex;
@@ -138,13 +143,15 @@ nav {
 
 .menu-container {
   width: 103vw;
-  height: 100%;
-  background: #fff;
-  position: fixed;
+  height: 100vh;
+  padding: 1em 2.5em;
+  position: absolute;
   top: 0;
   right: 0;
+  background: #fff;
   user-select: none;
-  padding: 1em 2.5em;
+  overflow: hidden;
+  z-index: 15;
 
   &-list {
     display: flex;
@@ -168,9 +175,37 @@ nav {
   }
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $darkgray;
+  color: #fff;
+
+  & p {
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  & > .adress {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid $mediumgray;
+  }
+  & > p {
+    padding: 10px;
+    color: $mediumgray;
+  }
+}
+
 .page-wrapper {
-  margin: 0 auto;
+  margin: 0 auto 20px;
   max-width: 1200px;
+  min-height: calc(100vh - 209px);
   background: #fff;
 }
 
