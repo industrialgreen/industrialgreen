@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <PageWrapper>
         <div className="home-wrapper">
-          <Image src="/home-background.png" width="600" height="1000" alt="" />
+          <Image src="/home.png" width="600" height="1000" alt="flowers" />
           <div className="text-container">
             <h1>Industrial <span className="green">Green</span></h1>
             <motion.div
@@ -30,7 +30,7 @@ export default function Home() {
               <h2>{t('homeTitle')}</h2>
               <p>{t('homeSubtitle')}</p>
               <Link href="/products">
-              <button className="button-text">{t('homeButton')}</button>
+              <button className="button button-text">{t('homeButton')}</button>
               </Link>
             </motion.div>
           </div>

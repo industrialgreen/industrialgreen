@@ -35,7 +35,7 @@ a {
   color: $green;
 }
 
-.button-text {
+.button {
   color: $green;
   padding: 6px 16px;
   font-size: 0.875rem;
@@ -53,7 +53,14 @@ a {
 
   &:hover {
     border: 1px solid $green;
+  }
 
+  &-text {
+    border: 1px solid $green;
+
+    &:hover {
+      border-width: 2px;
+    }
   }
 }
 
@@ -80,9 +87,7 @@ nav {
   display: flex;
   justify-content: space-between;
 
-  border-bottom: 1px solid $lightgray;
-
-  & div {
+  & .nav-items-container {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -114,8 +119,56 @@ nav {
   }
 }
 
+.hamburger-container {
+  display: flex;
+
+  & > .burger-button {
+    z-index: 900;
+    border: none;
+    background: none;
+    color: #000;
+  }
+}
+
+.hamburger-icon {
+  color: $green;
+  transition: all 250ms ease-in-out;
+  z-index: 99;
+}
+
+.menu-container {
+  width: 103vw;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  user-select: none;
+  padding: 1em 2.5em;
+
+  &-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 55px;
+
+    & > .burger-item {
+      & a {
+        display: block;
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+  
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid #e2e2e2;
+      }
+    }
+  }
+}
+
 .page-wrapper {
-  padding-top: 20px;
   margin: 0 auto;
   max-width: 1200px;
   background: #fff;
@@ -123,6 +176,11 @@ nav {
 
 .home-wrapper {
   display: flex;
+
+  & > img {
+    margin-top: -112px;
+    z-index: 9;
+  }
 
   & > .text-container {
     margin-top: 10vh;
