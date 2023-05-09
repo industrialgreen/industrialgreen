@@ -10,6 +10,7 @@ export type IProduct = {
   title: string;
   description: string;
   img: string;
+  imgList: string[];
 };
 
 const products: IProduct[] = [
@@ -19,27 +20,31 @@ const products: IProduct[] = [
     title: "kwietnik 1",
     description: "opis 1",
     img: "/products/kwietnik001/kwietnik001.png",
+    imgList: [],
   },
   {
     id: 102,
     cathegory: "outdoor",
-    title: "lawka 1",
+    title: "kwietnik balkonowy 01",
     description: "opis 2",
-    img: "/products/kwietnik001/kwietnik001.png",
+    img: "/products/balkon001/balkon-1-001.png",
+    imgList: ["/products/balkon001/balkon-1-001.png",],
   },
   {
     id: 103,
     cathegory: "outdoor",
-    title: "lawka 2",
+    title: "kwietnik balkonowy 02",
     description: "opis 3",
-    img: "/products/kwietnik001/kwietnik001.png",
+    img: "/products/balkon002/balkon-2-mini.png",
+    imgList: ["/products/balkon002/balkon-2-001.png", "/products/balkon002/balkon-2-002.png"],
   },
   {
     id: 104,
-    cathegory: "indoor",
-    title: "produkt 3",
+    cathegory: "outdoor",
+    title: "donica tarasowa",
     description: "opis 3",
-    img: "/products/kwietnik001/kwietnik001.png",
+    img: "/products/taras001/taras-donice1-mini.png",
+    imgList: ["/products/taras001/taras-donice1-001.png", "/products/taras001/taras-donice1-002.png"],
   },
   {
     id: 105,
@@ -47,6 +52,7 @@ const products: IProduct[] = [
     title: "produkt 4",
     description: "opis 4",
     img: "/products/kwietnik001/kwietnik001.png",
+    imgList: [],
   },
 ];
 
