@@ -1,6 +1,8 @@
+import { ChangeEvent, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import PageWrapper from "@/components/PageWrapper";
 import ProductTile from "@/components/ProductTile";
+import useTranslation from "next-translate/useTranslation";
 
 export type IProduct = {
   id: number;
@@ -61,16 +63,62 @@ const tile = {
 };
 
 const Products = () => {
+  const { t } = useTranslation("common");
+  const [type, setType] = useState("all");
+  const [productList, setProductList] = useState(products);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedType = e.target.value;
+    setType(selectedType);
+    if (selectedType === "all") {
+      setProductList(products);
+    } else {
+      setProductList(
+        products.filter((product) => product.cathegory === selectedType)
+      );
+    }
+  };
+
   return (
     <PageWrapper>
-      <h1>Products</h1>
+      <div className="products-filters">
+        <p>{t("show")}</p>
+        <form>
+          <input
+            type="radio"
+            name="filters"
+            value="all"
+            id="all"
+            onChange={handleChange}
+            checked={type === "all"}
+          />
+          <label htmlFor="all">{t("all")}</label>
+          <input
+            type="radio"
+            name="filters"
+            value="indoor"
+            id="indoor"
+            onChange={handleChange}
+            checked={type === "indoor"}
+          />
+          <label htmlFor="indoor">{t("indoor")}</label>
+          <input
+            type="radio"
+            name="filters"
+            value="outdoor"
+            id="outdoor"
+            onChange={handleChange}
+            checked={type === "outdoor"}
+          />
+          <label htmlFor="outdoor">{t("outdoor")}</label>
+        </form>
+      </div>
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="products"
+        className="products-container"
       >
-        {products.map((item) => (
+        {productList.map((item) => (
           <motion.div key={item.id} variants={tile}>
             <ProductTile product={item} />
           </motion.div>
