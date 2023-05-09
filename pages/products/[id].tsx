@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import useTranslation from 'next-translate/useTranslation'
+import useTranslation from "next-translate/useTranslation";
 import PageWrapper from "@/components/PageWrapper";
 
 export default function ProductPage() {
-  const {t} = useTranslation('common')
+  const { t } = useTranslation("common");
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ export default function ProductPage() {
       </Head>
       <PageWrapper>
         <div className="home-wrapper">
-            <p>product page</p>
+          <p>product page</p>
         </div>
       </PageWrapper>
     </>

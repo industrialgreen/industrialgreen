@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import useTranslation from 'next-translate/useTranslation'
+import useTranslation from "next-translate/useTranslation";
 import PageWrapper from "@/components/PageWrapper";
 
 export default function Home() {
-  const {t} = useTranslation('common')
+  const { t } = useTranslation("common");
   return (
     <>
       <Head>
@@ -20,17 +20,21 @@ export default function Home() {
         <div className="home-wrapper">
           <Image src="/home.png" width="600" height="1000" alt="flowers" />
           <div className="text-container">
-            <h1>Industrial <span className="green">Green</span></h1>
+            <h1>
+              Industrial <span className="green">Green</span>
+            </h1>
             <motion.div
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{opacity: 0, y: 0}}
-              transition={{duration: 0.8, delay: 0.8 }}
+              exit={{ opacity: 0, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <h4>{t('homeTitle')}</h4>
-              <p className="subtitle">{t('homeSubtitle')}</p>
+              <h4>{t("homeTitle")}</h4>
+              <p className="subtitle">{t("homeSubtitle")}</p>
               <Link href="/products">
-              <button className="button button-text">{t('homeButton')}</button>
+                <button className="button button-text">
+                  {t("homeButton")}
+                </button>
               </Link>
               <main className="about-us">
                 <div>

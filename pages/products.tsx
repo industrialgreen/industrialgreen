@@ -3,12 +3,12 @@ import PageWrapper from "@/components/PageWrapper";
 import ProductTile from "@/components/ProductTile";
 
 export type IProduct = {
-  id: number,
-  cathegory: "indoor" | "outdoor",
-  title: string,
-  description: string,
-  img: string,
-}
+  id: number;
+  cathegory: "indoor" | "outdoor";
+  title: string;
+  description: string;
+  img: string;
+};
 
 const products: IProduct[] = [
   {
@@ -46,7 +46,7 @@ const products: IProduct[] = [
     description: "opis 4",
     img: "/products/kwietnik001/kwietnik001.png",
   },
-]
+];
 
 const container = {
   hidden: { opacity: 1 },
@@ -64,20 +64,18 @@ const Products = () => {
   return (
     <PageWrapper>
       <h1>Products</h1>
-      <motion.div             
+      <motion.div
         variants={container}
         initial="hidden"
         animate="show"
         className="products"
       >
-
-      {products.map((item) => (
-        <motion.div key={item.id} variants={tile}>
-          <ProductTile product={item}/>
-        </motion.div>
-
+        {products.map((item) => (
+          <motion.div key={item.id} variants={tile}>
+            <ProductTile product={item} />
+          </motion.div>
         ))}
-        </motion.div>
+      </motion.div>
     </PageWrapper>
   );
 };
