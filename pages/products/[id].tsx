@@ -1,13 +1,43 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
 import PageWrapper from "@/components/PageWrapper";
+import { IProduct, products } from ".";
 
-export default function ProductPage() {
+type IProps = {
+  product: IProduct;
+};
+
+const ProductPage = ({ product }: IProps) => {
   const { t } = useTranslation("common");
+  const [imageIndex, setImageIndex] = useState(0);
+  let imgSrc = product.imgList[imageIndex || 0];
+
+  const handleNextImage = () => {
+    if (imageIndex === undefined) return;
+    if (imageIndex === product.imgList.length - 1) {
+      setImageIndex(0);
+    } else {
+      setImageIndex(imageIndex + 1);
+    }
+  };
+
+  const handlePrevImage = () => {
+    if (imageIndex === undefined) return;
+    if (imageIndex === 0) {
+      setImageIndex(product.imgList.length - 1);
+    } else {
+      setImageIndex(imageIndex - 1);
+    }
+  };
+
+
+  console.log(product);
   return (
     <>
       <Head>
@@ -17,10 +47,60 @@ export default function ProductPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageWrapper>
-        <div className="home-wrapper">
-          <p>product page</p>
+        <div className="product-wrapper">
+          <div>
+            <p>opis produktu</p>
+            <p>{product.title}</p>
+            <p>{product.description}</p>
+            <p>tu bedzie caly opis napisany przez Jolante</p>
+          </div>
+          <div>
+            <div className="main-img-container">
+              <button onClick={handlePrevImage}>poprzednie</button>
+              <img src={imgSrc} alt="" />
+              <button onClick={handleNextImage}>nastepne</button>
+            </div>
+            <div className="mini-img-container">
+              {product?.imgList.map((image, index) => (
+                <button key={image}>
+                  <img src={image} />
+                </button>
+              ))}
+              <img />
+            </div>
+          </div>
         </div>
       </PageWrapper>
     </>
   );
-}
+};
+
+export default ProductPage;
+
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const data = products;
+
+  const productsIds = data.map((product) => product.id);
+  const paths = productsIds
+    .map((id) =>
+      locales!!.map((locale) => ({
+        params: { id },
+        locale,
+      }))
+    )
+    .flat();
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context: any) => {
+  const id = context.params.id;
+  const data = products.filter((item) => item.id === id)[0];
+
+  return {
+    props: { product: data },
+  };
+};

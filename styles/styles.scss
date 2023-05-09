@@ -330,6 +330,23 @@ footer {
     max-height: 300px;
   }
 }
+
+.product-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.main-img-container {
+  display: flex;
+  & img {
+    width: 300px;
+  }
+}
+
+.mini-img-container {
+  & button > img {
+    width: 75px
+  }
+}
 .contact-container {
   display: grid;
   grid-template-columns: 3fr 2fr;

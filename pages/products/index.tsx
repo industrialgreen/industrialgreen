@@ -5,7 +5,7 @@ import ProductTile from "@/components/ProductTile";
 import useTranslation from "next-translate/useTranslation";
 
 export type IProduct = {
-  id: number;
+  id: string;
   cathegory: "indoor" | "outdoor";
   title: string;
   description: string;
@@ -13,9 +13,9 @@ export type IProduct = {
   imgList: string[];
 };
 
-const products: IProduct[] = [
+export const products: IProduct[] = [
   {
-    id: 101,
+    id: "101",
     cathegory: "indoor",
     title: "kwietnik 1",
     description: "opis 1",
@@ -23,7 +23,7 @@ const products: IProduct[] = [
     imgList: [],
   },
   {
-    id: 102,
+    id: "102",
     cathegory: "outdoor",
     title: "kwietnik balkonowy 01",
     description: "opis 2",
@@ -31,7 +31,7 @@ const products: IProduct[] = [
     imgList: ["/products/balkon001/balkon-1-001.png",],
   },
   {
-    id: 103,
+    id: "103",
     cathegory: "outdoor",
     title: "kwietnik balkonowy 02",
     description: "opis 3",
@@ -39,7 +39,7 @@ const products: IProduct[] = [
     imgList: ["/products/balkon002/balkon-2-001.png", "/products/balkon002/balkon-2-002.png"],
   },
   {
-    id: 104,
+    id: "104",
     cathegory: "outdoor",
     title: "donica tarasowa",
     description: "opis 3",
@@ -47,7 +47,7 @@ const products: IProduct[] = [
     imgList: ["/products/taras001/taras-donice1-001.png", "/products/taras001/taras-donice1-002.png"],
   },
   {
-    id: 105,
+    id: "105",
     cathegory: "indoor",
     title: "produkt 4",
     description: "opis 4",
