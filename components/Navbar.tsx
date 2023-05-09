@@ -17,13 +17,13 @@ const Navbar = () => {
   const path = usePathname();
   const { t } = useTranslation("common");
 
-  const [screenWidth, setScreenWidth] = useState<number>()
+  const [screenWidth, setScreenWidth] = useState<number>();
   useEffect(() => {
-      const handleResize = () => setScreenWidth(window.innerWidth);
-      handleResize();
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, [screenWidth]);
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [screenWidth]);
 
   const isMobile = screenWidth!! < 767;
 
@@ -33,18 +33,22 @@ const Navbar = () => {
       {isMobile ? (
         <MobileMenu />
       ) : (
-      <div className="nav-items-container">
-        {links.map((link) => (
-          <Link
-            href={link.href}
-            key={link.href}
-            className={`${link.href === path ? "active" : ""}`}
-          ><p>
-            {t(link.text)}
-          </p>
-          </Link>
-        ))}
-      </div>
+        <div className="nav-items-container">
+          {links.map((link) => (
+            <Link
+              href={link.href}
+              key={link.href}
+              className={`${
+                path === link.href ||
+                (path.startsWith("/products") && link.href === "/products")
+                  ? "active"
+                  : ""
+              }`}
+            >
+              <p>{t(link.text)}</p>
+            </Link>
+          ))}
+        </div>
       )}
     </nav>
   );
