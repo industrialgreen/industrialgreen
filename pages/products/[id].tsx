@@ -53,6 +53,10 @@ const ProductPage = ({ product }: IProps) => {
             <p>{product.title}</p>
             <p>{product.description}</p>
             <p>tu bedzie caly opis napisany przez Jolante</p>
+            <p>tu bedzie caly opis napisany przez Jolante</p>
+            <p>tu bedzie caly opis napisany przez Jolante</p>
+            <p>tu bedzie caly opis napisany przez Jolante</p>
+
           </div>
           <div>
             <div className="main-img-container">
