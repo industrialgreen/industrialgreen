@@ -1,13 +1,15 @@
+import { KeyboardEvent } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
 import PageWrapper from "@/components/PageWrapper";
 import { IProduct, products } from ".";
+import { BsChevronLeft } from "react-icons/bs";
+import { BsChevronRight } from "react-icons/bs";
+import { BsXLg } from "react-icons/bs";
 
 type IProps = {
   product: IProduct;
@@ -16,14 +18,17 @@ type IProps = {
 const ProductPage = ({ product }: IProps) => {
   const { t } = useTranslation("common");
   const [imageIndex, setImageIndex] = useState(0);
-  let imgSrc = product.imgList[imageIndex || 0];
+  const [imgSrc, setImgSrc] = useState(product.imgList[0]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleNextImage = () => {
     if (imageIndex === undefined) return;
     if (imageIndex === product.imgList.length - 1) {
       setImageIndex(0);
+      setImgSrc(product.imgList[0]);
     } else {
       setImageIndex(imageIndex + 1);
+      setImgSrc(product.imgList[imageIndex + 1]);
     }
   };
 
@@ -31,13 +36,25 @@ const ProductPage = ({ product }: IProps) => {
     if (imageIndex === undefined) return;
     if (imageIndex === 0) {
       setImageIndex(product.imgList.length - 1);
+      setImgSrc(product.imgList[product.imgList.length - 1]);
     } else {
       setImageIndex(imageIndex - 1);
+      setImgSrc(product.imgList[imageIndex - 1]);
     }
   };
 
+  const handleKeyPress = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.code === "ArrowRight") {
+      handleNextImage();
+    }
+    if (e.code === "ArrowLeft") {
+      handlePrevImage();
+    }
+    if (e.code === "Escape") {
+      setModalOpen(false);
+    } else return;
+  };
 
-  console.log(product);
   return (
     <>
       <Head>
@@ -56,24 +73,63 @@ const ProductPage = ({ product }: IProps) => {
             <p>tu bedzie caly opis napisany przez Jolante</p>
             <p>tu bedzie caly opis napisany przez Jolante</p>
             <p>tu bedzie caly opis napisany przez Jolante</p>
-
           </div>
           <div>
             <div className="main-img-container">
-              <button onClick={handlePrevImage}>poprzednie</button>
-              <img src={imgSrc} alt="" />
-              <button onClick={handleNextImage}>nastepne</button>
+              <button className="arrow-button left" onClick={handlePrevImage}>
+                <BsChevronLeft />
+              </button>
+              <img src={imgSrc} alt="" onClick={() => setModalOpen(true)} />
+              <button className="arrow-button right" onClick={handleNextImage}>
+                <BsChevronRight />
+              </button>
             </div>
             <div className="mini-img-container">
-              {product?.imgList.map((image, index) => (
-                <button key={image}>
+              {product?.imgList.map((image) => (
+                <button
+                  key={image}
+                  onClick={() => setImgSrc(image)}
+                  style={{
+                    borderBottomColor: image === imgSrc ? "#179736" : "#fff",
+                  }}
+                >
                   <img src={image} />
                 </button>
               ))}
-              <img />
             </div>
           </div>
         </div>
+        <AnimatePresence>
+          {modalOpen && (
+            <motion.div
+              className="modal"
+              onKeyDown={handleKeyPress}
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <button
+                className="arrow-button close"
+                onClick={() => setModalOpen(false)}
+              >
+                <BsXLg />
+              </button>
+              <div className="">
+                <button className="arrow-button left" onClick={handlePrevImage}>
+                  <BsChevronLeft />
+                </button>
+                <img src={imgSrc} alt="" onClick={() => setModalOpen(true)} />
+                <button
+                  className="arrow-button right"
+                  onClick={handleNextImage}
+                >
+                  <BsChevronRight />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </PageWrapper>
     </>
   );

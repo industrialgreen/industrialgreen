@@ -41,6 +41,10 @@ a {
   color: $green;
 }
 
+button:focus-visible {
+  outline: none;
+}
+
 .button {
   color: $green;
   padding: 6px 16px;
@@ -85,6 +89,34 @@ a {
 
   &:hover {
     color: $green;
+  }
+}
+
+.arrow-button {
+  position: absolute;
+  height: 100%;
+  width: 45px;
+  background: transparent;
+  border: none;
+  filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 0px 2px);
+  cursor: pointer;
+
+  & > svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+  }
+  &.left {
+    left: 0;
+  }
+  &.right {
+    right: 0;
+  }
+  &.close {
+    top: 5px;
+    right: 0;
+    height: initial;
+    z-index: 25;
   }
 }
 
@@ -291,7 +323,7 @@ footer {
         background: CanvasText;
       }
 
-      &:checked{
+      &:checked {
         border: 0.1em solid $green;
         &::before {
           transform: scale(1);
@@ -336,17 +368,59 @@ footer {
   justify-content: space-around;
 }
 .main-img-container {
+  position: relative;
   display: flex;
   & img {
     width: 300px;
+    cursor: pointer;
   }
 }
 
 .mini-img-container {
-  & button > img {
-    width: 75px
+  display: flex;
+  gap: 5px;
+  & button {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    overflow: hidden;
+    cursor: pointer;
+
+    & > img {
+      max-width: 75px;
+    }
   }
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  z-index: 20;
+
+  & img {
+    max-block-size: -webkit-fill-available;
+  }
+
+  & .arrow-button {
+    filter: unset;
+    & > svg {
+      fill: #000;
+    }
+    &.close > svg {
+      width: 25px;
+    }
+  }
+}
+
 .contact-container {
   display: grid;
   grid-template-columns: 3fr 2fr;

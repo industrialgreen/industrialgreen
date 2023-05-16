@@ -36,7 +36,7 @@ export const products: IProduct[] = [
     title: "kwietnik balkonowy 02",
     description: "opis 3",
     img: "/products/balkon002/balkon-2-min.png",
-    imgList: ["/products/balkon002/balkon-2-001.png", "/products/balkon002/balkon-2-002.png"],
+    imgList: ["/products/balkon002/balkon-2001.png", "/products/balkon002/balkon-2002.png"],
   },
   {
     id: "104",
