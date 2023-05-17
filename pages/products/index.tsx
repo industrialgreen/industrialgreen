@@ -27,8 +27,8 @@ export const products: IProduct[] = [
     cathegory: "outdoor",
     title: "kwietnik balkonowy 01",
     description: "opis 2",
-    img: "/products/balkon001/balkon-1-001.png",
-    imgList: ["/products/balkon001/balkon-1-001.png",],
+    img: "/products/balkon001/balkon-1-min.png",
+    imgList: ["/products/balkon001/balkon-1001.png", "/products/balkon001/balkon-1002.png", "/products/balkon001/balkon-1003.png", "/products/balkon001/balkon-1004.png"],
   },
   {
     id: "103",
@@ -41,13 +41,21 @@ export const products: IProduct[] = [
   {
     id: "104",
     cathegory: "outdoor",
+    title: "kwietnik balkonowy 03",
+    description: "opis 3",
+    img: "/products/balkon003/balkon-3-min.png",
+    imgList: ["/products/balkon003/balkon-3001.png", "/products/balkon003/balkon-3002.png", "/products/balkon003/balkon-3003.png", "/products/balkon003/balkon-3004.png"],
+  },
+  {
+    id: "105",
+    cathegory: "outdoor",
     title: "donica tarasowa",
     description: "opis 3",
     img: "/products/taras001/taras-donice1-min.png",
     imgList: ["/products/taras001/taras-donice1-001.png", "/products/taras001/taras-donice1-002.png"],
   },
   {
-    id: "105",
+    id: "106",
     cathegory: "indoor",
     title: "produkt 4",
     description: "opis 4",
