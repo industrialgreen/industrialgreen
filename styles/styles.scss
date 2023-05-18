@@ -46,6 +46,9 @@ b {
 .underline {
   text-decoration: underline $green;
 }
+.subtitle {
+  margin: 10px 0 20px 0;
+}
 
 button:focus-visible {
   outline: none;
@@ -293,6 +296,37 @@ footer {
   }
 }
 
+.section {
+  &-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 20px 0;
+    & p {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.product-galery {
+  &-container {
+    display: flex;
+    gap: 10px;
+
+    & a {
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+
+    }
+
+  }
+}
+
 .products {
   &-filters {
     display: flex;
@@ -371,7 +405,7 @@ footer {
 }
 
 .product {
-  &-wrapper{
+  &-wrapper {
     display: flex;
     justify-content: space-around;
     gap: 60px;
@@ -410,15 +444,12 @@ footer {
       font-size: 14px;
       font-weight: 300;
     }
-
   }
   &-ral {
     width: 30px;
     height: 30px;
     border-radius: 50%;
   }
-
-
 }
 
 .mini-img-container {
