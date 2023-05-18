@@ -37,8 +37,14 @@ a {
   text-decoration: none;
   color: inherit;
 }
+b {
+  font-weight: 500;
+}
 .green {
   color: $green;
+}
+.underline {
+  text-decoration: underline $green;
 }
 
 button:focus-visible {
@@ -337,8 +343,9 @@ footer {
   }
   &-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
     gap: 10px 20px;
+    max-width: 1200px;
   }
 }
 
@@ -358,14 +365,29 @@ footer {
     border: 1px solid $green;
   }
   & img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 100%;
+    height: auto;
   }
 }
 
-.product-wrapper {
-  display: flex;
-  justify-content: space-around;
+.product {
+  &-wrapper{
+    display: flex;
+    justify-content: space-around;
+    gap: 60px;
+    & p {
+      font-weight: 300;
+    }
+    & .contact {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &-description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 .main-img-container {
   position: relative;
@@ -374,6 +396,29 @@ footer {
     width: 300px;
     cursor: pointer;
   }
+}
+
+.colors {
+  display: flex;
+  gap: 12px;
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+  }
+  &-ral {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+
 }
 
 .mini-img-container {

@@ -1,4 +1,5 @@
 import { KeyboardEvent } from "react";
+import Link from "next/link";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -20,6 +21,25 @@ const ProductPage = ({ product }: IProps) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [imgSrc, setImgSrc] = useState(product.imgList[0]);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const colors = [
+    { ral: "9005", hex: "#0A0A0A" },
+    { ral: "9004", hex: "#282828" },
+    { ral: "9011", hex: "#1C1C1C" },
+    { ral: "9016", hex: "#F6F6F6" },
+    { ral: "9003", hex: "#F4F4F4" },
+    { ral: "9010", hex: "#FFF" },
+    { ral: "7016", hex: "#293133" },
+    { ral: "8017", hex: "#45322E" },
+    { ral: "8019", hex: "#403A3A" },
+    { ral: "3020", hex: "#CC0605" },
+    { ral: "1021", hex: "#F3DA0B" },
+    { ral: "1023", hex: "#FAD201" },
+    { ral: "9006", hex: "#A5A5A5" },
+    { ral: "9007", hex: "#8F8F8F" },
+    { ral: "1036", hex: "#705335" },
+    { ral: "1035", hex: "#6A5D4D" },
+  ];
 
   const handleNextImage = () => {
     if (imageIndex === undefined) return;
@@ -65,14 +85,50 @@ const ProductPage = ({ product }: IProps) => {
       </Head>
       <PageWrapper>
         <div className="product-wrapper">
-          <div>
-            <p>opis produktu</p>
-            <p>{product.title}</p>
+          <div className="product-description">
+            <h4 className="underline">{product.title}</h4>
             <p>{product.description}</p>
-            <p>tu bedzie caly opis napisany przez Jolante</p>
-            <p>tu bedzie caly opis napisany przez Jolante</p>
-            <p>tu bedzie caly opis napisany przez Jolante</p>
-            <p>tu bedzie caly opis napisany przez Jolante</p>
+            <p>
+              <b>Materiał: </b>
+              {product.material}
+            </p>
+            <p>
+              <b>Dostępne kolory RAL:</b>
+            </p>
+            <div className="colors">
+              {colors.map((color) => (
+                <div className="colors-container" key={color.ral}>
+                  <div
+                    className="colors-ral"
+                    style={{ background: color.hex }}
+                  ></div>
+                  <p>{color.ral}</p>
+                </div>
+              ))}
+            </div>
+            <p>
+              <b>Przykładowe wymiary kwietnika: </b>
+              {product.totalDimensions}
+            </p>
+            <p>
+              <b>Przykładowe wymiary doniczek: </b>
+              {product.potterDimensions}
+            </p>
+            <p>
+              <b>W komplecie wkład wewnętrzny: </b>
+              {product.inside}
+            </p>
+            <p>
+              <b>Termin realizacji:</b>
+              {product.orderTime}
+            </p>
+            <div className="contact">
+              <Link href="/products">
+                <button className="button button-text">
+                  {t("contactButton")}
+                </button>
+              </Link>
+            </div>
           </div>
           <div>
             <div className="main-img-container">
